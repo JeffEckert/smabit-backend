@@ -3,6 +3,7 @@ class CreateTransactions < ActiveRecord::Migration[6.0]
     create_table :transactions do |t|
       t.integer :item_id
       t.integer :amount
+      t.string :kind
       t.string :note
       t.datetime :date
       t.timestamps
