@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+item = Item.create(name: "Widget", balance: 15)
+
+transaction = Transaction.create(item_id: 1, amount: 3, note: "purchase from Oregon COC")

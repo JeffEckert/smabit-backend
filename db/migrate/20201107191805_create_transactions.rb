@@ -4,6 +4,7 @@ class CreateTransactions < ActiveRecord::Migration[6.0]
       t.integer :item_id
       t.integer :amount
       t.string :note
+      t.datetime :date
       t.timestamps
     end
   end

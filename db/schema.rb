@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2020_11_07_191805) do
     t.integer "item_id"
     t.integer "amount"
     t.string "note"
+    t.datetime "date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
