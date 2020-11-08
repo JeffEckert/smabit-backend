@@ -8,4 +8,4 @@
 
 item = Item.create(name: "Widget", balance: 15)
 
-transaction = Transaction.create(item_id: 1, amount: 3, note: "purchase from Oregon COC", date: Date.today)
+transaction = Transaction.create(item_id: 1, amount: 3, note: "purchase from Oregon COC", kind: "add", date: Date.today)
