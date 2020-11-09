@@ -12,6 +12,16 @@ class Api::V1::TransactionsController < ApplicationController
         render json: @transaction
     end
    
+    def create
+        @transaction = @item.transactions.new(transaction_params)
+        @transaction.date = DateTime.now
+        if @item.update_balance(@transaction) != 'Balance too low'
+            @transaction.save
+            render json: @item
+        else
+            render json: {error: 'Balance too low'}
+        end
+    end
 
     private
 
