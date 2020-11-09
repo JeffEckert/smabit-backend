@@ -2,11 +2,16 @@ class Api::V1::ItemsController < ApplicationController
 
     def index
         @items = Item.all 
-        render json: @accounts
+        render json: @items
     end
 
     def create
-
+        @item = Item.new(item_params)
+        if @item.save
+            render json: @item
+        else
+            render json: {error: "Error Creating Account"}
+        end
     end
 
     def show
