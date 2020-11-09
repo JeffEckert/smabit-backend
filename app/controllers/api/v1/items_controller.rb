@@ -24,6 +24,13 @@ class Api::V1::ItemsController < ApplicationController
         @item.destroy
     end
 
+    def update
+        @item = Item.find(params[:id])
+        @item.update(name: params["account"]["name"]) 
+        @item.save
+        render json: @item
+    end
+
     private
 
     def item_params
