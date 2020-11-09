@@ -23,6 +23,18 @@ class Api::V1::TransactionsController < ApplicationController
         end
     end
 
+    def destroy
+        @transaction = Transaction.find(params["id"])
+        @item = Item.find(@transaction.account_id)
+        if @item.update_balance_on_delete(@transaction)
+          @transaction.destroy
+          render json: @item
+        else
+          render json: {error: 'Balance too low'}
+        end
+      end
+
+
     private
 
     def set_item
