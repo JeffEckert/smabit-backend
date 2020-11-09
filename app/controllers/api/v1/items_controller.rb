@@ -15,11 +15,13 @@ class Api::V1::ItemsController < ApplicationController
     end
 
     def show
-
+        @item = Item.find(params[:id])
+        render json: @item
     end
 
     def destroy
-
+        @item = Item.find(params[:id])
+        @item.destroy
     end
 
     private
