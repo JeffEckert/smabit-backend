@@ -17,14 +17,14 @@ class Item < ApplicationRecord
  end
 
   def update_balance_on_delete(transaction)
-    if transaction.kind == 'deposit'
+    if transaction.kind == 'add'
       if self.balance >= transaction.amount
        self.balance = self.balance - transaction.amount
        self.save
       else
         return 'Balance too low.'
      end
-    elsif transaction.kind == 'withdraw'
+    elsif transaction.kind == 'subtract'
       self.balance = self.balance + transaction.amount
       self.save
     end
