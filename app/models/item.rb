@@ -3,10 +3,10 @@ class Item < ApplicationRecord
     validates :name, :balance, presence: true
 
     def update_balance(transaction)
-        if transaction.kind == 'deposit'
+        if transaction.kind == 'add'
           self.balance = self.balance + transaction.amount
           self.save
-        elsif transaction.kind == 'withdraw'
+        elsif transaction.kind == 'subtract'
           if self.balance >= transaction.amount
             self.balance = self.balance - transaction.amount
             self.save
