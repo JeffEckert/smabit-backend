@@ -1,6 +1,16 @@
 class Api::V1::TransactionsController < ApplicationController
 
     before_action :set_item
+
+    def index
+        @transactions = Transaction.all
+        render json: @transactions
+    end
+    
+    def show
+        @transaction = Transaction.find(params[:id])
+        render json: @transaction
+    end
    
 
     private
