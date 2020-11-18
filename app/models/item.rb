@@ -4,7 +4,7 @@ class Item < ApplicationRecord
 
   def update_balance(transaction)
     if transaction.kind == 'add'
-        elf.balance = self.balance + transaction.amount
+        self.balance = self.balance + transaction.amount
         self.save
     elsif transaction.kind == 'subtract'
      if self.balance >= transaction.amount

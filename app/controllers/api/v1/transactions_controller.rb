@@ -28,7 +28,7 @@ class Api::V1::TransactionsController < ApplicationController
         @item = Item.find(@transaction.account_id)
         if @item.update_balance_on_delete(@transaction)
           @transaction.destroy
-          render json: @account
+          render json: @item
         else
           render json: {error: 'Balance too low'}
         end
