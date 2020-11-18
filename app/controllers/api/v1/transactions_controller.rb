@@ -25,7 +25,7 @@ class Api::V1::TransactionsController < ApplicationController
 
     def destroy
         @transaction = Transaction.find(params["id"])
-        @item = Item.find(@transaction.account_id)
+        @item = Item.find(@transaction.item_id)
         if @item.update_balance_on_delete(@transaction)
           @transaction.destroy
           render json: @item
