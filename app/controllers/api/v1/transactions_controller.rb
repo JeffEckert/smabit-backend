@@ -1,6 +1,6 @@
 class Api::V1::TransactionsController < ApplicationController
 
-    # before_action :set_item
+    before_action :set_item
 
     def index
         @transactions = Transaction.all
@@ -37,9 +37,9 @@ class Api::V1::TransactionsController < ApplicationController
 
     private
 
-    # def set_item
-    #     @item = Item.find(params[:item_id])
-    # end
+    def set_item
+        @item = Item.find(params[:item_id])
+    end
 
     def transaction_params
         params.require(:transaction).permit(:item_id, :amount, :kind, :note, :date)
