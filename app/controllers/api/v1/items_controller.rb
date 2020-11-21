@@ -27,7 +27,7 @@ class Api::V1::ItemsController < ApplicationController
 
     def update
         @item = Item.find(params[:id])
-        @item.update(name: params["account"]["name"]) 
+        @item.update(name: params["item"]["name"], balance: params["item"]["balance"]) 
         @item.save
         render json: @item
     end
